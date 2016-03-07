@@ -18,3 +18,9 @@ ionic platform add android
 ionic serve
 ionic serve --lab
 ```
+
+#### Deployment:
+```
+ionic build android
+ionic run android
+```
