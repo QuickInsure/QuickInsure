@@ -29,6 +29,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         controller: 'AppCtrl'
     })
 
+    .state('app.login', {
+        url: '/login',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/login.html',
+                controller: 'LoginCtrl'
+            }
+        }
+    })
+
     .state('app.lists', {
         url: '/lists',
         views: {
