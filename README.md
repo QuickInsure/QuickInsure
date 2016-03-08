@@ -4,6 +4,7 @@
 ```
 npm install -g cordova
 npm install -g ionic
+npm install -g gulp
 ```
 
 #### Plugin Setup:
