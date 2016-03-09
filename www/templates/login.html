@@ -1,20 +1,26 @@
-<ion-view view-title="Login">
-    <ion-content>
-        <div class="im-wrapper">
-			<form>
-			    <div class="list">
-			        <label class="item item-input item-floating-label">
-			            <span class="input-label">Username</span>
-			            <input type="text" placeholder="Username" ng-model="username">
-			        </label>
-			        <label class="item item-input item-floating-label">
-			            <span class="input-label">Password</span>
-			            <input type="password" placeholder="Password" ng-model="password">
-			        </label>
-			    </div>
-                <button id="submit-button" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1">
-                    Submit
-                </button>
+<ion-view view-title="Login" ng-controller="LoginCtrl">
+	<ion-content>
+		<div class="im-wrapper">
+			<form ng-submit="submitFunction()" name="loginForm" novalidate>
+				<div class="list">
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Username</span>
+						<input type="text" placeholder="Username" ng-model="username" name="username" ng-minlength="5" required clean-inputs>
+					</label>
+					<label class="item item-input item-floating-label">
+						<span class="input-label">Password</span>
+						<input type="password" placeholder="Password" ng-model="password" name="password" ng-minlength="5" required>
+					</label>
+				</div>
+		        <div class="padding">
+		            <p ng-show="loginForm.username.$error.required">* Username is required</p>
+		            <p ng-show="loginForm.username.$error.minlength">* Username must be longer than 5 characters</p>
+		            <p ng-show="loginForm.username.$error.restrictedChar">* Invalid characters</p>
+		            <p ng-show="loginForm.password.$error.required">* Password is required</p>
+		            <p ng-show="loginForm.password.$error.minlength">* Password must be longer than 5 characters</p>
+		            <p ng-show="loginForm.password.$error.restrictedChar">* Invalid characters</p>
+		        </div>
+				<input type="submit" value="Submit" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1" ng-disabled="loginForm.$invalid" />
 			</form>
 		</div>	
 	</ion-content>	
