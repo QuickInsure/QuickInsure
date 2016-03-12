@@ -88,8 +88,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             }
         }
     })
+
+    .state('app.car', {
+    url: '/car',
+    views: {
+        'menuContent': {
+            templateUrl: 'templates/car.html',
+            controller: 'CarCtrl'
+        }
+    }
+    })
     ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/login');
+    $urlRouterProvider.otherwise('/app/car');
 });
