@@ -1,25 +1,25 @@
 <ion-view view-title="Car" ng-controller="LoginCtrl">
 	<ion-content>
 		<div class="im-wrapper">
-			<form ng-submit="submitFunction()" name="getCarQuote" novalidate>
+			<form ng-submit="submitFunction()" name="getCarQuote" ng-controller="CarCtrl" novalidate>
 				<div class="list">
 					<label class="item item-input item-floating-label">
 						<span class="input-label">CarName</span>
-						<input type="text" placeholder="CarName" ng-model="username" name="username" ng-minlength="5" required clean-inputs>
+						<input type="text" placeholder="CarName" ng-model="carname" name="carname" ng-minlength="5" required clean-inputs>
 					</label>
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Car Registration Number</span>
-						<input type="password" placeholder="Registration Number" ng-model="password" name="password" ng-minlength="5" required>
+						<input type="number" placeholder="Registration Number" ng-model="registrationNum" name="registrationNum" ng-minlength="5" required>
 					</label>
 				</div>
-		       <!--  <div class="padding">
-		            <p ng-show="loginForm.username.$error.required">* Username is required</p>
-		            <p ng-show="loginForm.username.$error.minlength">* Username must be longer than 5 characters</p>
-		            <p ng-show="loginForm.username.$error.restrictedChar">* Invalid characters</p>
-		            <p ng-show="loginForm.password.$error.required">* Password is required</p>
-		            <p ng-show="loginForm.password.$error.minlength">* Password must be longer than 5 characters</p>
-		            <p ng-show="loginForm.password.$error.restrictedChar">* Invalid characters</p>
-		        </div> -->
+		        <div class="padding">
+		            <p ng-show="getCarQuote.carname.$error.required">* Car name is required</p>
+		            <p ng-show="getCarQuote.carname.$error.minlength">* Username name must be more than 8 characters</p>
+		            <p ng-show="getCarQuote.carname.$error.restrictedChar">* Invalid characters</p>
+		            <p ng-show="getCarQuote.registrationNum.$error.required">* Registration Number is required</p>
+		            <p ng-show="getCarQuote.registrationNum.$error.minlength">* Registration number must be atleast 5 characters long</p>
+		            <p ng-show="getCarQuote.registrationNum.$error.restrictedChar">* Invalid characters for Registartion number</p>
+		        </div>
 				<input type="submit" value="Get Quote" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1" ng-disabled="loginForm.$invalid" />
 			</form>
 		</div>	
