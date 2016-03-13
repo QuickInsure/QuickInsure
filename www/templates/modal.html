@@ -1,0 +1,29 @@
+<!-- <script id="templates/modal.html" type="text/ng-template"> -->
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">Policy Details</h1>
+          <button class="button button-clear " ng-click="modal.hide()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">Car Name</span>
+              <input ng-model="carname" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Registration Date</span>
+              <input ng-model="regYear" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Fuel Type</span>
+              <input ng-model="fuelType" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Premium</span>
+              <input ng-model="calculatedPremium" type="text">
+            </label>
+            <button class="button button-full button-positive" ng-click="closeModal()">OK</button>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+<!-- </script> -->

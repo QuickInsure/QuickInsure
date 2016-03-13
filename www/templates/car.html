@@ -1,27 +1,91 @@
-<ion-view view-title="Car" ng-controller="LoginCtrl">
+<ion-view view-title="Car" ng-controller="CarCtrl">
 	<ion-content>
 		<div class="im-wrapper">
 			<form ng-submit="submitFunction()" name="getCarQuote" ng-controller="CarCtrl" novalidate>
 				<div class="list">
-					<label class="item item-input item-floating-label">
+					<label class="item item-input item-floating-label" ng-class="{ 'has-error' : getCarQuote.carname.$invalid}">
 						<span class="input-label">CarName</span>
-						<input type="text" placeholder="CarName" ng-model="carname" name="carname" ng-minlength="5" required clean-inputs>
+						<input type="text" placeholder="Choose a Car" ng-model="carname" name="carname" ng-minlength="5" required clean-inputs>
+						<div class="form-errors" ng-messages="etCarQuote.carname..$error" ng-messages-include="templates/carFormErrors.html">  
+						<div class="form-error" ng-message="maxlength">This field is must be less than 10 characters</div>  
+						</div>
 					</label>
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Car Registration Number</span>
-						<input type="number" placeholder="Registration Number" ng-model="registrationNum" name="registrationNum" ng-minlength="5" required>
+						<input type="text" placeholder="Registration Number" ng-model="registrationNum" name="registrationNum" ng-minlength="5" required>
 					</label>
+<!-- 					 <label class="item item-input">
+		              <span class="input-label">CarName</span>
+		              <input ng-model="carname" type="text" ng-minlength="5" required clean-inputs>
+		            </label>
+		            <label class="item item-input">
+		              <span class="input-label">Car Registration Number</span>
+		              <input type="text" placeholder="Registration Number" ng-model="registrationNum" name="registrationNum" ng-minlength="5" required>
+		            </label> -->
+					<label class="item item-input item-select">
+					    <div class="input-label">
+					      Year Of registration
+					    </div>
+					    <select ng-model="regYear" ng-change="selectedFuelType(regYear)"> 
+					      <option>2016</option>
+					      <option>2015</option>
+					      <option>2014</option>
+					    </select>
+					 </label>
+<!-- 					<label class="item item-input item-floating-label">
+						<span class="input-label">Fuel Type</span>
+						<input type="text" placeholder="Fuel Type" ng-model="fuelType" name="fuelType" ng-minlength="5" required>
+					</label> -->
+					<label class="item item-input item-select">
+					    <div class="input-label">
+					      Fuel Type
+					    </div>
+					    <select ng-model="fuelType" ng-change="selectedFuelType(fuelType)"> 
+					      <option>Petrol</option>
+					      <option>Diesel</option>
+					      <option>CNG</option>
+					    </select>
+					 </label>
 				</div>
 		        <div class="padding">
 		            <p ng-show="getCarQuote.carname.$error.required">* Car name is required</p>
-		            <p ng-show="getCarQuote.carname.$error.minlength">* Username name must be more than 8 characters</p>
+<!-- 		            <p ng-show="getCarQuote.carname.$error.minlength">* Username name must be more than 8 characters</p> -->
 		            <p ng-show="getCarQuote.carname.$error.restrictedChar">* Invalid characters</p>
 		            <p ng-show="getCarQuote.registrationNum.$error.required">* Registration Number is required</p>
 		            <p ng-show="getCarQuote.registrationNum.$error.minlength">* Registration number must be atleast 5 characters long</p>
 		            <p ng-show="getCarQuote.registrationNum.$error.restrictedChar">* Invalid characters for Registartion number</p>
 		        </div>
-				<input type="submit" value="Get Quote" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1" ng-disabled="loginForm.$invalid" />
+<!-- 		              <div class="buttons">
+				        <button class="button button-icon ion-compose" ng-controller="CarCtrl" ng-click="openModal()">
+				        </button>
+				      </div> -->
+				<input type="submit" value="Get Quote" class="button button-block button-calm ink" data-ink-color="#9DEAFF" data-ink-opacity="1" ng-disabled="loginForm.$invalid" ng-click="openModal()"/>
 			</form>
 		</div>	
 	</ion-content>	
 </ion-view>
+<!-- <script id="modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar class="bar bar-header bar-positive">
+          <h1 class="title">New Contact</h1>
+          <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+          <div class="list">
+            <label class="item item-input">
+              <span class="input-label">First Name</span>
+              <input ng-model="newUser.firstName" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Last Name</span>
+              <input ng-model="newUser.lastName" type="text">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Email</span>
+              <input ng-model="newUser.email" type="text">
+            </label>
+            <button class="button button-full button-positive" ng-click="createContact(newUser)">Create</button>
+          </div>
+        </ion-content>
+      </ion-modal-view>
+</script> -->
