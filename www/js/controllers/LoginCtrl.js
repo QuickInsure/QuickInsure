@@ -1,11 +1,34 @@
-app.controller('LoginCtrl', function($scope) {
+app.controller('LoginCtrl', function($scope, OnlineConnectService) {
 	$scope.username = "";
 	$scope.password = "";
 	$scope.submitFunction = function() {
-		console.log($scope.username);
-        console.log($scope.password);
+		$scope.username = loginForm.username.value;
+		$scope.password = loginForm.password.value;
+        data = {
+        	username: $scope.username,
+        	password: $scope.password
+        }
+		/*OnlineConnectService.localConnect("/login/mobileAuth", data).then(function(response) {
+			if (response) {
+				alert("login successful");
+			}
+			else {
+				alert("login unsuccessful");
+			}
+		});*/
+
+		/*OnlineConnectService.bluemixConnect("/login/mobileAuth", data).then(function(response) {
+			if (response) {
+				alert("login successful");
+			}
+			else {
+				alert("login unsuccessful");
+			}
+		});*/
 	}
 });
+
+
 
 app.directive('cleanInputs', function() {
 	return {
