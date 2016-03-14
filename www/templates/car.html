@@ -6,9 +6,9 @@
 					<label class="item item-input item-floating-label" ng-class="{ 'has-error' : getCarQuote.carname.$invalid}">
 						<span class="input-label">CarName</span>
 						<input type="text" placeholder="Choose a Car" ng-model="carname" name="carname" ng-minlength="5" required clean-inputs>
-						<div class="form-errors" ng-messages="etCarQuote.carname..$error" ng-messages-include="templates/carFormErrors.html">  
+<!-- 						<div class="form-errors" ng-messages="etCarQuote.carname..$error" ng-messages-include="templates/carFormErrors.html">  
 						<div class="form-error" ng-message="maxlength">This field is must be less than 10 characters</div>  
-						</div>
+						</div> -->
 					</label>
 					<label class="item item-input item-floating-label">
 						<span class="input-label">Car Registration Number</span>
@@ -22,7 +22,7 @@
 		              <span class="input-label">Car Registration Number</span>
 		              <input type="text" placeholder="Registration Number" ng-model="registrationNum" name="registrationNum" ng-minlength="5" required>
 		            </label> -->
-					<label class="item item-input item-select">
+					<label class="item item-select">
 					    <div class="input-label">
 					      Year Of registration
 					    </div>
@@ -36,7 +36,7 @@
 						<span class="input-label">Fuel Type</span>
 						<input type="text" placeholder="Fuel Type" ng-model="fuelType" name="fuelType" ng-minlength="5" required>
 					</label> -->
-					<label class="item item-input item-select">
+					<label class="item item-select">
 					    <div class="input-label">
 					      Fuel Type
 					    </div>
